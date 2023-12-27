@@ -1,0 +1,396 @@
+/* * {
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif;
+    font-size: 16px;
+  } */
+  /* html {
+    margin: 0;
+    background: #f8f9f9 linear-gradient(0deg, #f8f9f9 0%, #f8f9f9 83%, #4b82c5 83%, #4b82c5 100%) no-repeat;
+    padding: 30px;
+    height: 100%;
+  } */
+
+
+
+
+
+
+
+
+
+
+   h1, h2, h3, h4, h5 {
+    color: #4a5361;
+    margin: 0;
+    padding: 0;
+  }
+  .file-manager {
+    background: #fff;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 30px;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+  }
+  .file-manager form {
+    display: flex;
+    flex-flow: column;
+    padding: 0 15px;
+  }
+  .file-manager form label {
+    padding: 10px 0;
+  }
+  .file-manager form input, .file-manager form select {
+    border: 1px solid #c4c7cf;
+    padding: 10px;
+    border-radius: 4px;
+  }
+  .file-manager form button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    appearance: none;
+    cursor: pointer;
+    border: 0;
+    border-radius: 4px;
+    margin: 15px 0;
+    padding: 10px;
+    background-color: #4a79b4;
+    color: #fff;
+    font-weight: 500;
+    font-size: 14px;
+  }
+  .file-manager form button:hover {
+    background-color: #4672a9;
+  }
+  .file-manager-header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 20px 0;
+  }
+  .file-manager-header h1 {
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+    padding: 0 15px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #7f828a;
+    flex: 1;
+  }
+  .file-manager-header a {
+    display: inline-flex;
+    text-decoration: none;
+    color: #fff;
+    background-color: #397ed3;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    width: 34px;
+    height: 34px;
+    margin-right: 15px;
+  }
+  .file-manager-header a:hover {
+    background-color: #2e76cf;
+  }
+  .file-manager-table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  .file-manager-table thead tr td {
+    position: relative;
+    border-top: 1px solid #dbdde0;
+    border-bottom: 1px solid #dbdde0;
+    padding: 10px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #9a9ea7;
+  }
+  .file-manager-table thead tr td.selected-column {
+    border-bottom: 1px solid #a4a9b1;
+    color: #52565c;
+  }
+  .file-manager-table thead tr td.selected-column i {
+    display: inline-block;
+  }
+  .file-manager-table thead tr td i {
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 21px;
+  }
+  .file-manager-table tbody tr {
+    background-color: #f7f9fa;
+    border-bottom: 1px solid #dbdde0;
+  }
+  .file-manager-table tbody tr:nth-child(even) {
+    background-color: #fff;
+  }
+  .file-manager-table tbody tr.selected {
+    background-color: #dceeff;
+    border-bottom: 1px solid #b0cae2;
+  }
+  .file-manager-table tbody tr td {
+    padding: 15px;
+    color: #000;
+  }
+  .file-manager-table tbody tr td.name {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  .file-manager-table tbody tr td.name i {
+    width: 25px;
+    min-width: 25px;
+  }
+  .file-manager-table tbody tr td.name i.fa-folder {
+    color: #FBD200;
+  }
+  .file-manager-table tbody tr td.name i.fa-file {
+    color: #b9bbbe;
+  }
+  .file-manager-table tbody tr td.name a {
+    text-decoration: none;
+    color: #000;
+  }
+  .file-manager-table tbody tr td.name a:hover {
+    text-decoration: underline;
+  }
+  .file-manager-table tbody tr td.date {
+    font-size: 14px;
+    color: #53555a;
+  }
+  .file-manager-table tbody tr td.actions .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background: #4a79b4;
+    color: #FFFFFF;
+    padding: 11px 6px;
+    border-radius: 4px;
+    margin-right: 2px;
+  }
+  .file-manager-table tbody tr td.actions .btn:hover {
+    background: #4672a9;
+  }
+  .file-manager-table tbody tr td.actions .btn.green {
+    background: #4ab46d;
+  }
+  .file-manager-table tbody tr td.actions .btn.green:hover {
+    background: #46a966;
+  }
+  .file-manager-table tbody tr td.actions .btn.red {
+    background: #b44a4a;
+  }
+  .file-manager-table tbody tr td.actions .btn.red:hover {
+    background: #a94646;
+  }
+  .file-manager-table tbody tr td.actions .btn:last-child {
+    margin-right: 0;
+  }
+
+  #topbar{
+    padding-left: 0;
+    padding-left: 48px;
+
+  }
+
+  #main{
+    padding-top: 60px;
+    height: calc(100% - 60px);
+    overflow: hidden;
+  }
+
+
+/* ::-webkit-scrollbar-track{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+::-webkit-scrollbar-thumb{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.103);
+	background-color: #555;
+} */
+
+body{
+  width: 100%;
+  height: 100%;
+}
+  .navbar{
+    height: 60px;
+  }
+
+
+
+#asasas{
+  height: calc(100vh - 139px);
+  overflow: auto;
+}
+#asasas svg{
+  height: 40px;
+  width: 40px;
+}
+
+
+.dropdown-menu-topbar .svg-fa-icon{
+  color:#78909C;
+  font-size: 18px;
+  width: 20px;
+}
+.dropdown-menu-topbar .dropdown-item.active .svg-fa-icon, .dropdown-menu-topbar .dropdown-item:active .svg-fa-icon, .touch-open .dropdown-menu-topbar .dropdown-item:hover .svg-fa-icon {
+  color: white;
+  transition: .2s;
+}
+
+.tui-datepicker.tui-rangepicker{
+  z-index: 1000;
+}
+
+.button_icon_wrapper{
+  flex: 0 0 auto;
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    border-radius: 6px;
+    font-weight: 700;
+    border-width: 1px;
+    border-style: solid;
+    line-height: 1em;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s ease-in-out 0s;
+    min-height: 32px;
+    padding: 6px 8px;
+    font-size: 14px;
+    background: rgb(242, 245, 247);
+    border-color: rgb(242, 245, 247);
+    color: rgb(72, 94, 117);
+    outline: none !important;
+}
+.date_picker_wrapper{
+  position: relative;
+    flex: 1 1 0%;
+    display: flex;
+    -webkit-box-align: stretch;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    overflow: hidden;
+    width: 100%;
+    min-height: 32px;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: normal;
+    margin: 0px;
+    padding: 0px;
+    text-transform: none;
+    font-size: 16px;
+    line-height: 24px;
+    color: rgb(43, 57, 72);
+    border-radius: 6px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(103, 132, 162);
+    outline: transparent solid 2px;
+    outline-offset: -2px;
+    transition: box-shadow 0.2s ease 0s, background-color 0.2s ease 0s, border-color 0.2s ease 0s, outline-color 0.2s ease 0s;
+    width:240px;
+    align-items: stretch;
+}
+.date_picker_wrapper:focus-within {
+  outline-color: rgb(10, 111, 232);
+}
+.center-icon-wrapper{
+  display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: normal;
+    margin: 0px;
+    text-transform: none;
+    font-size: 16px;
+    line-height: 24px;
+    color: rgb(43, 57, 72);
+    border-radius: 4px;
+    padding: 0px 4px;
+    min-width: 24px;
+    /* background: rgb(242, 245, 247); */
+}
+#date_range_picker{
+    padding: 0px 8px !important;
+    border: none;
+    background: none;
+    height: 100%;
+    width: 100%;
+    display: block;
+    appearance: none;
+    padding: 0px;
+    outline: none;
+    font: inherit;
+    min-width: 2px;
+    color: currentcolor;
+    caret-color: currentcolor;
+}
+.table-Wrapper{
+  position: relative;
+  border-right: 1px solid rgb(217, 224, 232);
+  border-bottom: 1px solid rgb(217, 224, 232);
+  border-left: 1px solid rgb(217, 224, 232);
+  border-image: initial;
+  border-top: none;
+  border-radius: 6px;
+  min-height: 200px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin-top: 24px;
+}
+#myTab{
+  background: rgb(255, 255, 255);
+}
+.button_icon_icon{
+  flex-shrink: 0;
+  margin-right: 8px;
+  font-size: 16px;
+}
+.button_icon_wrapper:hover, .button_icon_wrapper:focus {
+  background: rgb(217, 224, 232);
+  border-color: rgb(217, 224, 232);
+}
+.form-control.is-valid{
+  border-color: #71dd37 !important;
+}
+.form-control.is-invalid{
+  border-color: #ff3e1d !important;
+}
+
+
+.tui-grid-cell .is-valid{
+  background-color: #71dd37 !important;
+}
+.tui-grid-cell .is-invalid{
+  background-color: #ff3e1d !important;
+}
+
+
+
+
+
+

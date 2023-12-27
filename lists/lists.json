@@ -1,0 +1,170 @@
+{
+    "Name": "customers",
+    "display_name": "Customers",
+    "headers": ["name", "address", "city", "country", "zip", "vat", "email", "tel", "contact", "currency", "url"],
+    "columns": [{
+        "header": "Name",
+        "name": "name",
+        "filter": "select",
+        "editor": "text"
+    }, {
+        "header": "Address",
+        "name": "address",
+        "filter": "select",
+        "editor": "text"
+    }, {
+        "header": "City",
+        "name": "city",
+        "filter": "select",
+        "editor": "text"
+    }, {
+        "header": "Country",
+        "name": "country",
+        "filter": "select",
+        "editor": "text"
+    }, {
+        "header": "Zip",
+        "name": "zip",
+        "filter": "select",
+        "editor": "text"
+    }, {
+        "header": "Vat",
+        "name": "vat",
+        "filter": "select",
+        "editor": "text"
+    }, {
+        "header": "Email",
+        "name": "email",
+        "filter": "select",
+        "editor": "text"
+    }, {
+        "header": "Tel",
+        "name": "tel",
+        "filter": "select",
+        "editor": "text"
+    }, {
+        "header": "Contact",
+        "name": "contact",
+        "filter": "select",
+        "editor": "text"
+    }, {
+        "header": "currency",
+        "name": "currency",
+        "filter": "select",
+        "editor": {
+            "type": "select",
+            "options": {
+                "listItems": [{
+                    "text": "USD",
+                    "value": "USD"
+                }, {
+                    "text": "EUR",
+                    "value": "EUR"
+                }, {
+                    "text": "ILS",
+                    "value": "ILS"
+                }]
+            }
+        }
+    }, {
+        "header": "Webiste",
+        "name": "url",
+        "filter": "select",
+        "editor": "text"
+    }],
+    "active": 1,
+    "order": 3,
+    "config": {
+        "bodyHeight": "fitToParent",
+        "draggable": false,
+        "columnOptions": {
+            "resizable": false
+        },
+        "showDummyRows": false,
+        "rowHeaders": "",
+        "treeColumnOptions": {
+            "name": ""
+        }
+    },
+    "uris": {
+        "readData": "?customers",
+        "createData": "",
+        "updateData": "?ep=update_table",
+        "modifyData": "",
+        "deleteData": ""
+    },
+    "modal": "new_customers",
+    "validation": {
+        "name": {
+            "required": true,
+            "validators": {
+                "MINLENGTH": 3,
+                "MAXLENGTH": 50,
+                "EXISTS": "customers"
+            }
+        },
+        "address": {
+            "required": true,
+            "validators": {
+                "MINLENGTH": 3,
+                "MAXLENGTH": 100
+            }
+        },
+        "city": {
+            "required": true,
+            "validators": {
+                "MINLENGTH": 3,
+                "MAXLENGTH": 100
+            }
+        },
+        "zip": {
+            "required": true,
+            "validators": {
+                "REGEX": "zip"
+            }
+        },
+        "country": {
+            "required": true,
+            "validators": {
+                "MINLENGTH": 3,
+                "MAXLENGTH": 20
+            }
+        },
+        "email": {
+            "required": true,
+            "validators": {
+                "ISEMAIL": true
+            }
+        },
+        "vat": {
+            "required": false,
+            "validators": {
+                "REGEX": "vat"
+            }
+        },
+        "tel": {
+            "required": false,
+            "validators": {
+                "REGEX": "tel"
+            }
+        },
+        "contact": {
+            "required": false,
+            "validators": {}
+        },
+        "website": {
+            "required": false,
+            "validators": {
+                "REGEX": "website"
+            }
+        },
+        "currency": {
+            "required": false,
+            "validators": {
+                "EXISTS": "fx"
+            }
+        }
+    },
+    "page": "list",
+    "auth": 1
+}

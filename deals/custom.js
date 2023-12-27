@@ -1,0 +1,1 @@
+var $TABLE = new EG.TUITABLE({page:'deals'})

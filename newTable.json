@@ -1,0 +1,136 @@
+{
+    "name": "purchases",
+    "display_name": "Purchases",
+    "headers": [],
+    "columns": [{
+        "header": "PO",
+        "name": "po_num",
+        "filter": "select",
+        "editor": "text"
+    }, {
+        "header": "Date",
+        "name": "purchase_date",
+        "filter": "select",
+        "editor": "text"
+    }, {
+        "header": "By",
+        "name": "by",
+        "filter": "select",
+        "editor": "text"
+    },{
+        "header": "Vendor",
+        "name": "vendor",
+        "filter": "select",
+        "editor": "text"
+    }, {
+        "header": "Items",
+        "name": "items"
+    }, {
+        "header": "Status",
+        "name": "status",
+        "filter": "select",
+        "editor": "text"
+    },{
+        "header": "Vendors Number",
+        "name": "vendors_num",
+        "filter": "select",
+        "editor": "text"
+    },{
+        "header": "Cost",
+        "name": "total_cost",
+        "filter": "select",
+        "editor": "text"
+    },{
+        "header": "currency",
+        "name": "fx",
+        "filter": "select",
+        "editor": "text"
+    },{
+        "header": "Paid",
+        "name": "paid",
+        "filter": "select",
+        "editor": "checknox"
+    },{
+        "header": "Total Paid",
+        "name": "total_paid",
+        "filter": "select",
+        "editor": "text"
+    }],
+    "active": 1,
+    "order": 6,
+    "config": {
+        "bodyHeight": "fitToParent",
+        "draggable": false,
+        "columnOptions": {
+            "resizable": false
+        },
+        "showDummyRows": false,
+        "rowHeaders": "",
+        "treeColumnOptions": {
+            "name": ""
+        }
+    },
+    "uris": {
+        "readData": "?ep=get_table&table=purchases",
+        "createData": "",
+        "updateData": "?ep=update_table",
+        "modifyData": "",
+        "deleteData": ""
+    },
+    "modal": "new_purchase",
+    "validation": {
+        "po_num": {
+            "required": true,
+            "validators": {
+                "MINLENGTH": 3,
+                "MAXLENGTH": 50,
+                "ALLCHARS": "",
+                "EXISTS": "purchases"
+            }
+        },
+        "purchase_date": {
+            "required": true,
+            "validators": {
+                "ISDATE": ""
+            }
+        },
+        "by": {
+            "required": true,
+            "validators": {
+                "EXISTS": "users"
+            }
+        },
+        "vendor": {
+            "required": true,
+            "validators": {
+                "EXISTS": "contacts"
+               
+            }
+        },
+        "ean": {
+            "required": false,
+            "validators": {
+                "MINLENGTH": 11,
+                "MAXLENGTH": 13,
+                "ISNUMBER": "",
+                "EXISTS": "items"
+            }
+        },
+        "pn": {
+            "required": false,
+            "validators": {
+                "ALLCHARS": ""
+            }
+        },
+        "description": {
+            "required": false,
+            "validators": {
+                "MINLENGTH": 3,
+                "MAXLENGTH": 150,
+                "ALLCHARS": ""
+            }
+        }
+    },
+    "page": "lists",
+    "auth": 1
+}
